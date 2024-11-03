@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-
 #include <algorithm>
 
 using namespace std;
@@ -27,7 +26,7 @@ int iterativeBinarySearch(const vector<int>& vec, int target) {
         else
             right = mid - 1;
     }
-
+    return -1;
 }
 
 int sequentialSearch(const vector<int>& vec, int target) {
@@ -35,7 +34,7 @@ int sequentialSearch(const vector<int>& vec, int target) {
         if (vec[i] == target)
             return i;
     }
-
+    return -1;
 }
 
 int main() {
@@ -49,21 +48,18 @@ int main() {
     for (int num : numbers) cout << num << " ";
     cout << endl;
 
-    // Recursive Binary Search
     int index = recursiveBinarySearch(numbers, target1, 0, numbers.size() - 1);
     cout << "Recursive binary search: " << target1 << " found at location " << index << endl;
 
     index = recursiveBinarySearch(numbers, target2, 0, numbers.size() - 1);
     cout << "Recursive binary search: " << target2 << " was not found, return value is " << index << endl;
 
-
     index = iterativeBinarySearch(numbers, target1);
     cout << "Iterative binary search: " << target1 << " found at location " << index << endl;
 
     index = iterativeBinarySearch(numbers, target2);
-    cout << "Iterative binary Search: " << target2 << " was not found, return value is " << index << endl;
+    cout << "Iterative binary search: " << target2 << " was not found, return value is " << index << endl;
 
-    // Sequential Search
     index = sequentialSearch(numbers, target1);
     cout << "Sequential search: " << target1 << " found at location " << index << endl;
 
